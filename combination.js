@@ -10,15 +10,15 @@ Output:
 [ 'b', 'c', 'd', 'e' ]
 */
 
-console.log(search(alphabet, [], 0));
+console.log(combinations(alphabet, [], 0));
 
-function search(alphabet, combination, index) {
+function combinations(alphabet, combination, index) {
   if (combination.length == 4) {
     return [combination];
   } else {
     let result = [];
     for (let i=index; i<alphabet.length; i++) {
-        let partialResult = search(alphabet, [...combination, alphabet[i]], i + 1);
+        let partialResult = combinations(alphabet, [...combination, alphabet[i]], i + 1);
         partialResult.forEach(el => result.push(el));
     }
     return result;
